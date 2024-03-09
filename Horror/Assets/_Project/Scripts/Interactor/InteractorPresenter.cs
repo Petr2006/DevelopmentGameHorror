@@ -5,10 +5,10 @@
         private InteractorModel _model;
         private InteractorView _view;
 
-        public InteractorPresenter(InteractorModel interactorModel, InteractorView interactorView)
+        public InteractorPresenter(InteractorModel model, InteractorView view)
         {
-            _model = interactorModel;
-            _view = interactorView;
+            _model = model;
+            _view = view;
 
             Enable();
         }
