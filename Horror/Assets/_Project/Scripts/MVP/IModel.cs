@@ -1,4 +1,4 @@
-﻿namespace Game.Interactor
+﻿namespace Game
 {
     public interface IModel
     {

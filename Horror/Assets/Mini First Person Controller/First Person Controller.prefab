@@ -572,7 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectNameText: {fileID: 0}
-  _rayDistance: 2
 --- !u!114 &114963311885979670
 MonoBehaviour:
   m_ObjectHideFlags: 0

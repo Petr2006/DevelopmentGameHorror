@@ -21,9 +21,9 @@ namespace Game.Interactor
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, _rayDistance) &&
-                hit.collider.TryGetComponent<Interactable>(out Interactable interactable))
+                hit.collider.TryGetComponent<Item>(out Item item))
             {
-                _objectNameText.text = interactable.Name;
+                _objectNameText.text = item.ItemData.Name;
             }
 
             else
