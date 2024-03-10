@@ -2,10 +2,11 @@ using UnityEngine;
 
 namespace Game
 {
+    [RequireComponent(typeof (Rigidbody))]
     public class Item : MonoBehaviour
     {
-        public ItemsData ItemData => _itemData;
+        public ItemData ItemData => _itemData;
 
-        [SerializeField] private ItemsData _itemData;
+        [SerializeField] private ItemData _itemData;
     }
 }
