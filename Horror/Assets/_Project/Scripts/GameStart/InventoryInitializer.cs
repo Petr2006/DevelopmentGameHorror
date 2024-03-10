@@ -4,6 +4,8 @@ namespace Game
 {
     public class InventoryInitializer : SystemInitializer<InventoryView>
     {
+        public InventoryModel Model => _model;
+
         private InventoryModel _model;
         private InventoryPresenter _presenter;
 
@@ -11,6 +13,7 @@ namespace Game
         {
             _model = new();
             _presenter = new(view, _model);
+            _model.Initialize();
         }
     }
 }

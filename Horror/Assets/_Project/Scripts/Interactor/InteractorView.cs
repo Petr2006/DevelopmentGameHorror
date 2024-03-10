@@ -1,10 +1,13 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Game.Interactor
 {
     public class InteractorView : View
     {
+        public event Action<Item> ItemPickedUp;
+
         [SerializeField] private TMP_Text _objectNameText;
         
         private float _rayDistance;
@@ -24,6 +27,11 @@ namespace Game.Interactor
                 hit.collider.TryGetComponent<Item>(out Item item))
             {
                 _objectNameText.text = item.ItemData.Name;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    ItemPickedUp?.Invoke(item);
+                }
             }
 
             else

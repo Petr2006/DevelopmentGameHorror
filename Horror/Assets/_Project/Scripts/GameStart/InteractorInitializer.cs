@@ -1,4 +1,5 @@
 ﻿using Game.Interactor;
+using Game.Inventory;
 
 namespace Game
 {
@@ -11,7 +12,11 @@ namespace Game
         {
             _model = new();
             _presenter = new(_model, view);
-            _model.Initialize();
+        }
+
+        public void InventoryModelInitialize(InventoryModel inventoryModel)
+        {
+            _model.Initialize(inventoryModel);
         }
     }
 }

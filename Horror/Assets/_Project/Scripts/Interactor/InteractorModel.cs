@@ -1,10 +1,13 @@
 ﻿using System;
+using Game.Inventory;
 
 namespace Game.Interactor
 {
-    public class InteractorModel : IModel
+    public class InteractorModel
     {
         public event Action RayDistanceChanged;
+
+        private InventoryModel _inventoryModel;
 
         public float RayDistance
         {
@@ -22,9 +25,15 @@ namespace Game.Interactor
         private float _standartRayDistance = 2;
         private float _rayDistance;
 
-        public void Initialize()
+        public void Initialize(InventoryModel inventoryModel)
         {
             RayDistance = _standartRayDistance;
+            _inventoryModel = inventoryModel;
+        }
+
+        public void SendItemToInventory(Item item)
+        {
+            _inventoryModel.ReceiveItem(item);
         }
     }
 }

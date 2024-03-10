@@ -21,6 +21,7 @@ namespace Game
 
             _inventoryInitializer = new InventoryInitializer();
             _inventoryInitializer.Initialize(_inventoryView);
+            _interactorInitializer.InventoryModelInitialize(_inventoryInitializer.Model);
         }
     }
 }
