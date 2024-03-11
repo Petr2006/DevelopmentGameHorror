@@ -24,5 +24,10 @@ namespace Game.Inventory
         {
             _itemInHand = item;
         }
+
+        public void CheckItemInHand()
+        {
+
+        }
     }
 }

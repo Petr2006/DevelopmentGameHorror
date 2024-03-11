@@ -42,6 +42,5 @@ public class Cell : MonoBehaviour
         _iconInstantiate = null;
         _itemInCell = null;
         _iconInCell = null;
-        IsSelected = false;
     }
 }

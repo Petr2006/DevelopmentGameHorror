@@ -37,14 +37,13 @@ namespace Game.Inventory
                 {
                     component.Fill(item.ItemData);
                     Destroy(item.gameObject);
+
+                    if (component.IsSelected)
+                        ShowItem(component);
+
                     return;
                 }
             }
-        }
-
-        public void UseItem()
-        {
-
         }
 
         private void SelectCell()
@@ -111,15 +110,20 @@ namespace Game.Inventory
 
             if (_cells[index].childCount > 0)
             {
-                _currentItem = Instantiate
-                    (component.ItemInCell, _hand.position, _hand.rotation, _hand);
-                Rigidbody rigidbody = _currentItem.GetComponent<Rigidbody>();
-                Collider collider = _currentItem.GetComponent<Collider>();
-                Item item = _currentItem.GetComponent<Item>();
-                rigidbody.isKinematic = true;
-                collider.enabled = false;
-                ItemInHandChanged?.Invoke(item);
+                ShowItem(component);
             }
+        }
+
+        private void ShowItem(Cell component)
+        {
+            _currentItem = Instantiate
+                    (component.ItemInCell, _hand.position, _hand.rotation, _hand);
+            Rigidbody rigidbody = _currentItem.GetComponent<Rigidbody>();
+            Collider collider = _currentItem.GetComponent<Collider>();
+            Item item = _currentItem.GetComponent<Item>();
+            rigidbody.isKinematic = true;
+            collider.enabled = false;
+            ItemInHandChanged?.Invoke(item);
         }
 
         private void Update()
